@@ -20,3 +20,9 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'Angular artifact'
+    downloadPath: '$(System.ArtifactsDirectory)'
