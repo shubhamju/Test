@@ -7,7 +7,7 @@ trigger:
 - ckeditor
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
 - task: NodeTool@0
@@ -20,9 +20,9 @@ steps:
     npm install
     ng build
   displayName: 'npm install and build'
-- task: DownloadBuildArtifacts@1
+- task: CopyPublishBuildArtifacts@1
   inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'Angular artifact'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    CopyRoot: '$(Agent.BuildDirectory)'
+    Contents: '**'
+    ArtifactName: 'Angular_artifact'
+    ArtifactType: 'Container'
