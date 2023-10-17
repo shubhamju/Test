@@ -20,6 +20,14 @@ steps:
     npm install
     ng build
   displayName: 'npm install and build'
+  
+
+- task: Npm@1
+  inputs:
+      command: 'publish'
+      workingDir: '**'
+      publishRegistry: 'useFeed'
+      publishFeed: '1ad433c1-7a0d-44d3-abc8-c0d9752b0168'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
