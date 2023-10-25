@@ -26,6 +26,13 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: CopyPublishBuildArtifacts@1
+  inputs:
+    CopyRoot: '$(Agent.BuildDirectory)'
+    Contents: '**\*'
+    ArtifactName: 'Test_Artifact'
+    ArtifactType: 'Container'
+
 - task: ArchiveFiles@2
   inputs:
         rootFolderOrFile: '$(Build.BinariesDirectory)'
