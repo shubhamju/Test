@@ -19,6 +19,8 @@ steps:
     npm install -g @angular/cli
     npm install
     ng build
+    npm audit
+    npm audit fix
   displayName: 'npm install and build'
 - task: ArchiveFiles@2
   inputs:
