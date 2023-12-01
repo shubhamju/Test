@@ -18,8 +18,11 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
+    npm audit
+    npm audit fix
     ng build
-    displayName: 'npm install and build'
+    
+  displayName: 'npm install and build'
 - task: Npm@1
   inputs:
     command: 'custom'
