@@ -26,26 +26,17 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(agent.builddirectory)'
-    Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    MaxArtifactSize: 0
 
-- task: ArchiveFiles@2
-  inputs:
-        rootFolderOrFile: '$(Build.BinariesDirectory)'
-        includeRootFolder: true
-        archiveType: 'zip'
-        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-        replaceExistingArchive: true
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Data Collection Hands-on Lab(3da6cfb0-fdb9-4cdb-bf85-5193901e730e)'
-    appType: 'webApp'
-    WebAppName: 'testapp897'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'TestWebApp-RG'
-    SlotName: 'production'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+
+
+# - task: AzureRmWebAppDeployment@4
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'Data Collection Hands-on Lab(3da6cfb0-fdb9-4cdb-bf85-5193901e730e)'
+#     appType: 'webApp'
+#     WebAppName: 'testapp897'
+#     deployToSlotOrASE: true
+#     ResourceGroupName: 'TestWebApp-RG'
+#     SlotName: 'production'
+#     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
