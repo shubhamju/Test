@@ -19,9 +19,12 @@ steps:
     npm install -g @angular/cli
     npm install
     ng build
-    npm audit
-    npm audit fix
-  displayName: 'npm install and build'
+    displayName: 'npm install and build'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: '"npm audit","npm audit fix"'
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
