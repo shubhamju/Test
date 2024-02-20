@@ -21,13 +21,10 @@ steps:
     npm audit
     npm audit fix
     ng build
+    ng test  --watch=false
     
   displayName: 'npm install and build'
-- task: AngularCLI@1
-  inputs:
-    command: 'test'
-    project: '$(Build.BinariesDirectory)'
-    DisableAnalytics: false
+
 
 - task: ArchiveFiles@2
   inputs:
