@@ -45,5 +45,11 @@ export class LtscProductsService {
   UploadProductItemImage(prd:any){
     return this.http.post(this.baseserverurl+"LTSCProduct/UploadItemImages",prd);
   }
-  
+  manageItemDesc(prd:any){
+    return this.http.post(this.baseserverurl+"LTSCProduct/manageItemDesc",prd);
+  }
+  getItemDesc(ItemID: number) {
+    const apiUrl = this.baseserverurl+`LTSCProduct/getItemDesc?ItemID=${ItemID}`;
+    return this.http.get(apiUrl);
+  }
 }

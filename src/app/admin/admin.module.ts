@@ -16,7 +16,9 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
 import { LtscProductsModule } from '../ltsc-products/ltsc-products.module';
 import { ManageCategoryComponent } from './components/manage-category/manage-category.component';
 import { AddProductItemsComponent } from './components/add-product-items/add-product-items.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddItemDescriptionsComponent } from './components/add-item-descriptions/add-item-descriptions.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     ManageProductsComponent,
     ManageCategoryComponent,
     AddProductItemsComponent,
+    AddItemDescriptionsComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MatIconModule,
     LtscProductsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

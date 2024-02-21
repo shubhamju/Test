@@ -20,7 +20,9 @@ export class ItemDetailComponent implements OnInit {
   public AddWishOutPut:any=[];
   public cartOutPut:any=[];
   public PlaceOrderOutPut:any=[];
+  public ItemDescOutPut:any=[];
   IsLeggedIn:boolean=false;
+  GotItemDesc:boolean=false;
   selectedValues: { [key: number]: number } = {}; // To store selected values
 
   constructor(
@@ -88,12 +90,27 @@ export class ItemDetailComponent implements OnInit {
         this.router.navigate(['page-not-found']);
       }
       else{
+        console.log(this.ProdItemOutput)
+        //alert("hi")
+        //alert(this.ProdItemOutput[0].itemID)
+        
+        this.bindItemDesc(this.ProdItemOutput[0].itemID);
         if(this.ProdItemOutput.length>0){
           for (let i = 1; i <= this.ProdItemOutput.length; i++) {
             this.selectedValues[i] = 1;
           }
+
         }
       }
+    });
+  }
+  bindItemDesc(ItemID:number){
+    this.ltsc.getItemDesc(ItemID).subscribe(res=>{
+      this.ItemDescOutPut=res;
+      if(this.ItemDescOutPut.length>0){
+        this.GotItemDesc=true
+      }
+      console.log(this.ItemDescOutPut)
     });
   }
   addToWishlist(product: any): void {

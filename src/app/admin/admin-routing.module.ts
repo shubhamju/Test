@@ -9,6 +9,7 @@ import { ProductsComponent } from '../ltsc-products/components/products/products
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageCategoryComponent } from './components/manage-category/manage-category.component';
 import { AddProductItemsComponent } from './components/add-product-items/add-product-items.component';
+import { AddItemDescriptionsComponent } from './components/add-item-descriptions/add-item-descriptions.component';
 
 const routes: Routes = [{ path: '', component: AdminComponent,
   children:[
@@ -18,7 +19,8 @@ const routes: Routes = [{ path: '', component: AdminComponent,
     {path:'add-user',component:UserAddComponent},
     {path:'manage-products',component:ManageProductsComponent},
     {path:'manage-category',component:ManageCategoryComponent},
-    {path:'add-product-item',component:AddProductItemsComponent}
+    {path:'add-product-item',component:AddProductItemsComponent},
+    {path:'add-item-description',component:AddItemDescriptionsComponent}
   ]
 }];
 

@@ -78,7 +78,10 @@
 mat-slider {
     width: 95%;
   }
-
+p{
+    font-size: 1.0rem;
+    color: #605e5e;
+}
   /*..Main Loader..*/
 #loadingLoader {
     position: fixed;
