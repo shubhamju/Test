@@ -21,10 +21,12 @@ steps:
     npm audit
     npm audit fix
     ng build
-    ng test  --watch=false
-    
+
   displayName: 'npm install and build'
 
+- script: |
+    ng test --code-coverage
+  displayName: 'Run Angular Tests'
 
 - task: ArchiveFiles@2
   inputs:
